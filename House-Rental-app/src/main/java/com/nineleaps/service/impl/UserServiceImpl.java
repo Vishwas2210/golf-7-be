@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userrepository;
+    private UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userrepository) {
-        this.userrepository = userrepository;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public User saveuser(User user) {
-        return userrepository.save(user);
+    public User saveUser(User user) {
+        return userRepository.save(user);
     }
 }

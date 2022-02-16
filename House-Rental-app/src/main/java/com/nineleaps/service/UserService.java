@@ -3,5 +3,5 @@ package com.nineleaps.service;
 import com.nineleaps.model.User;
 
 public interface UserService {
-    User saveuser(User user);
+    User saveUser(User user);
 }
