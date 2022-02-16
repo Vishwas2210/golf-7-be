@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.nineleaps</groupId>
-	<artifactId>Spring-Boot-Signup</artifactId>
+	<artifactId>House-Rental-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Spring-Boot-Signup</name>
+	<name>House-Rental-app</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
