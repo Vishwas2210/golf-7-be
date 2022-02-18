@@ -15,4 +15,5 @@ class SecurityConfigration extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests().antMatchers("/user/registration").permitAll()
                 .anyRequest().authenticated().and().httpBasic();
     }
+
 }
