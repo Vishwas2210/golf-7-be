@@ -6,3 +6,6 @@ spring:
           google:
             clientId: 146666397011-6vcrmg7b760acgd3jt76f9il2dbbt0f2.apps.googleusercontent.com
             clientSecret: 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
+            scope:
+              - email
+              - profile

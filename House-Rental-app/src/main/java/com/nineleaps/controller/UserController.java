@@ -29,4 +29,9 @@ public class UserController {
         user.setPassword(encodedPassword);
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
     }
+
+    @PostMapping("/login")
+    public String loginUser(){
+        return "Logged IN";
+    }
 }

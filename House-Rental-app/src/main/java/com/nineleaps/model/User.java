@@ -41,4 +41,12 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Size(min = 6, message = "Password Should have at least 6 characters.")
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "provider")
+    private Provider provider;
+
+    public void setUsername(String username) {
+        setFirstName(username);
+    }
 }
