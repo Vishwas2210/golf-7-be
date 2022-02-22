@@ -56,7 +56,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getFirstName()+" "+getLastName();
+        return getEmail();
     }
 
     @Override
@@ -77,5 +77,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setUsername(String username) {
+        setEmail(username);
     }
 }
