@@ -1,6 +1,5 @@
 package com.nineleaps.config;
 
-import com.nineleaps.service.auth.CustomAuth2User;
 import com.nineleaps.service.auth.CustomAuth2UserService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfigration extends WebSecurityConfigurerAdapter {
+class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private CustomAuth2UserService customAuth2User;
 

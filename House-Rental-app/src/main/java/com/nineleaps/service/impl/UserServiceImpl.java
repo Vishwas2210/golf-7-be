@@ -10,16 +10,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-
+    @Autowired
     private UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public User createUser(User user) throws Exception {
+        User local = userRepository.findByEmail(user.getEmail());
+        if (local != null){
+            System.out.println("User Already Exist.");
+            throw new Exception("User Already Exist.");
+        }
+        else
+            local = userRepository.save(user);
+        return local;
     }
 
     public void processOAuthPostLogin(String username) {

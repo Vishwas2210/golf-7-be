@@ -17,13 +17,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/google")
+    @GetMapping()
     public String welcome(){
         return "Hello user!!";
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<User>saveUser(@Valid @RequestBody User user){
+    public ResponseEntity<User>saveUser(@Valid @RequestBody User user) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
