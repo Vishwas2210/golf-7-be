@@ -1,6 +1,7 @@
 package com.nineleaps.controller;
 
 import com.nineleaps.model.User;
+import com.nineleaps.repository.UserRepository;
 import com.nineleaps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,18 +18,28 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping()
     public String welcome(){
         return "Hello user!!";
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<User>saveUser(@Valid @RequestBody User user) throws Exception {
+    public ResponseEntity<?>saveUser(@Valid @RequestBody User user) throws Exception {
+
+        if (userRepository.findUserByEmail(user.getEmail()) != null) {
+            return new ResponseEntity<>("Email Already in Use.", HttpStatus.BAD_REQUEST);
+        }
+
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.OK);
     }
+
+
 
     @PostMapping("/login")
     public String loginUser(){

@@ -8,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -17,11 +19,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        User user = userRepository.findByEmail(email);
+        User user = userRepository.findUserByEmail(email);
         if (user == null){
             System.out.println("User Not Found.");
-            throw new UsernameNotFoundException("Invalid Credentials.");
+            throw new UsernameNotFoundException("Invalid Credentials : "+email);
         }
-        return user;
+
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
     }
 }

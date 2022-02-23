@@ -56,7 +56,8 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getEmail();
+        String username = this.getEmail();
+        return username;
     }
 
     @Override
