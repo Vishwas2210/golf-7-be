@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 public class JwtRequest {
 
     @NotBlank
-    String userName;
+    String email;
 
     @NotBlank
     String password;

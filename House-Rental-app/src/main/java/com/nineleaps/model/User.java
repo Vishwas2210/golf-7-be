@@ -12,6 +12,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,8 +21,8 @@ import java.util.Collection;
 @Table(name = "user_table")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue
+    private UUID id;
 
     @NotEmpty
     @Column(name = "first_name", nullable = false)

@@ -8,6 +8,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
+import java.util.UUID;
+
+import static javax.persistence.FetchType.LAZY;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -16,24 +20,19 @@ import javax.validation.constraints.NotEmpty;
 public class Owner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long ownerId;
-
-
-    @Column(name = "house_no", nullable = false)
-    private String houseNo;
-    @Column(name = "block_no",nullable = false)
-    private String blockNo;
-    @Column(name = "address")
-    private String address;
-    @Column(name = "pincode")
-    private String pincode;
-    @Column(name = "city")
-    private String city;
-    @Column(name = "state")
-    private String state;
-    @Column(name = "country")
-    private String country;
-
+    @GeneratedValue
+    UUID ownerId;
+    @NotEmpty
+    String propertyName;
+    @NotEmpty
+    String address;
+    @NotEmpty
+    String pincode;
+    @NotEmpty
+    String city;
+    @NotEmpty
+    String state;
+    @NotEmpty
+    String country;
 
 }

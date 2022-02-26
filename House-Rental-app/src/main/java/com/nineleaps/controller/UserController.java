@@ -21,12 +21,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping()
-    public String welcome(){
-        return "Hello user!!";
-    }
-
-    @PostMapping("/registration")
+    @PostMapping("/signup")
     public ResponseEntity<?>saveUser(@Valid @RequestBody User user) throws Exception {
 
         if (userRepository.findUserByEmail(user.getEmail()) != null) {
@@ -40,9 +35,4 @@ public class UserController {
     }
 
 
-
-    @PostMapping("/login")
-    public String loginUser(){
-        return "Logged IN";
-    }
 }
